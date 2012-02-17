@@ -1,0 +1,4 @@
+Searches a word in google and writes search result infromation to a page.
+
+Used modules:
+httplib2
