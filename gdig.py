@@ -20,7 +20,7 @@ def do_process():
     """
     words = FileReader.get_word_list(properties['word_file'])
     for word in words:
-        word = word.split()
+        word = word.strip()
         properties['search_word'] = word
         object_list = get_word_results()
         FileReader.write_word_results(object_list)
