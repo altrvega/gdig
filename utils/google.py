@@ -3,6 +3,7 @@
 
 import simplejson as json
 from properties.properties import *
+from objects.page import *
 from apiclient.discovery import build
 
 
@@ -22,6 +23,7 @@ class Google(object):
             if ((startInd + 9) <= properties['page_count']):
                 bulkCount = 10
                 result = self.call_api(properties['search_word'], startInd, bulkCount)
+                print result
                 self.json_results.append(result['items'])
             else:
                 bulkCount = properties['page_count'] - startInd
@@ -47,3 +49,15 @@ class Google(object):
         if not self.json_results:
             self.do_process()
             return self.json_results
+
+    def get_object_results(self):
+        if not self.json_results:
+            self.do_process()
+        results = []
+        for res  in self.json_results:
+            for item in res:
+                obj = Page(item['link'], item['title'], item['snippet'])
+                results.append(obj)
+        return results
+                
+        
