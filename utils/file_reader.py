@@ -24,8 +24,7 @@ class FileReader(object):
         """write page information to a file
         """
         file_name = properties['search_word']
-        print file_name
-        f = io.open('files/' + file_name.encode('utf-8') + '.txt', 'w')
+        f = io.open(properties['output_dir'] + file_name.encode('utf-8') + '.txt', 'w')
         for obj in object_list:
             line = obj._link + ' ' + obj._title + ' ' + obj._snippet + '\n'
             f.write(line)

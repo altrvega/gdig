@@ -7,5 +7,6 @@ properties = {'cx' : '007754927876942265880:o0sedjbo-zq',
               'lang' : 'lang_tr',
               'page_count' : 20,
               'search_word' : '',
-              'word_file' : 'files/words.txt'
+              'word_file' : 'files/words.txt',
+              'output_dir' : 'files/'
              }

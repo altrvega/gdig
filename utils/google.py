@@ -23,7 +23,6 @@ class Google(object):
             if ((startInd + 9) <= properties['page_count']):
                 bulkCount = 10
                 result = self.call_api(properties['search_word'], startInd, bulkCount)
-                print result
                 self.json_results.append(result['items'])
             else:
                 bulkCount = properties['page_count'] - startInd
